@@ -1,0 +1,42 @@
+server:
+  port: 8081
+
+---
+spring:
+  config:
+    activate:
+      on-profile: jms-template, jms-listener
+  jms:
+    template:
+      receive-timeout: 2
+  artemis:
+    user: artemis
+    password: artemis
+    broker-url: tcp://localhost:61616
+    mode: native
+---
+spring:
+  config:
+    activate:
+      on-profile: rabbit-template, rabbitmq-listener
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+---
+spring:
+  config:
+    activate:
+      on-profile: kafka-listener
+  kafka:
+    bootstrap-servers: localhost:9092
+    template.default-topic: foodcloud.orders.topic
+    consumer:
+      key-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring:
+          json:
+            trusted:
+              packages: foods

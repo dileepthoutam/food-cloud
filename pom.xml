@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+        https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.5.3</version>   <!--1-->
+        <relativePath/>
+    </parent>
+
+    <groupId>sia</groupId>
+    <artifactId>food-cloud-parent</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <description>Food Cloud Example</description>
+    <packaging>pom</packaging>
+
+    <properties>
+        <java.version>11</java.version>
+        <foodcloud.version>${project.version}</foodcloud.version>
+        <lombok.version>1.18.30</lombok.version>
+    </properties>
+
+    <modules>
+        <module>foodcloud</module>
+        <module>foodcloud-domain</module>
+        <module>foodcloud-messages-jms</module>
+        <module>foodcloud-kitchen</module>
+        <module>foodcloud-restclient</module>
+        <module>foodcloud-messages-kafka</module>
+        <module>foodcloud-messages-rabbitmq</module>
+    </modules>
+
+    <repositories>
+        <repository>
+            <id>spring-milestones</id>
+            <name>Spring Milestones</name>
+            <url>https://repo.spring.io/milestone</url>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>spring-milestones</id>
+            <name>Spring Milestones</name>
+            <url>https://repo.spring.io/milestone</url>
+        </pluginRepository>
+    </pluginRepositories>
+
+</project>

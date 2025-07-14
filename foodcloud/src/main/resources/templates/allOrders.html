@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>All orders</title>
+</head>
+<body>
+<ul>
+    <li th:each="order : ${orders}">
+        <span th:text="'Order №' + ${order.getId()}">Order №</span>
+        <ul>
+            <li th:each="food : ${order.getFoods()}">
+                <span th:text="${food.getName()}">food name</span>
+                <ul>
+                    <li th:each="ingredient : ${food.getIngredients()}">
+                        <span th:text="${ingredient.getName()}">ingredient name</span></li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul>
+<a th:href="@{/}">Go to home</a><br/>
+</body>
+</html>

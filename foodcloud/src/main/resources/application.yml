@@ -1,0 +1,14 @@
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://localhost:9000/oauth2/jwks
+  datasource:
+    generate-unique-name: false
+    name: foodcloud
+  data:
+    rest:
+      base-path: /api
+server:
+  port: 8080
